@@ -1,4 +1,4 @@
-# Copyright 2015 UniCredit S.p.A.
+# Copyright 2015-2017 UniCredit S.p.A.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@ when defined(windows):
 elif defined(macosx):
   const libSuffix = ".dylib"
 else:
-  const libSuffix = ".so"
+  const libSuffix = ".so.(|3|2|1|0)"
 
 when defined(mkl):
   const libName = "libmkl_intel_lp64" & libSuffix
