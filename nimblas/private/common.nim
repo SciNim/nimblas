@@ -17,7 +17,7 @@ when defined(windows):
 elif defined(macosx):
   const libSuffix = ".dylib"
 else:
-  const libSuffix = ".so.(|3|2|1|0)"
+  const libSuffix = ".so(||.3|.2|.1|.0)"
 
 when defined(mkl):
   const libName = "libmkl_intel_lp64" & libSuffix
