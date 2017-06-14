@@ -495,5 +495,5 @@ proc zher2k*(Order: CBLAS_ORDER; Uplo: CBLAS_UPLO; Trans: CBLAS_TRANSPOSE; N: ci
             K: cint; alpha: pointer; A: pointer; lda: cint; B: pointer; ldb: cint;
             beta: cdouble; C: pointer; ldc: cint) {.importc: "cblas_zher2k",
     dynlib: libName.}
-proc xerbla*(p: cint; rout: cstring; form: cstring) {.varargs, importc: "cblas_xerbla",
-    dynlib: libName.}
+# proc xerbla*(p: cint; rout: cstring; form: cstring) {.varargs, importc: "cblas_xerbla",
+#     dynlib: libName.}

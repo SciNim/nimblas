@@ -1,4 +1,4 @@
-# Copyright 2015-2017 UniCredit S.p.A.
+# Copyright 2017 UniCredit S.p.A.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,21 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-when defined(windows):
-  const
-    libSuffix = ".dll"
-    libPrefix = ""
-elif defined(macosx):
-  const
-    libSuffix = ".dylib"
-    libPrefix = "lib"
-else:
-  const
-    libSuffix = ".so(||.3|.2|.1|.0)"
-    libPrefix = "lib"
+import unittest, nimblas/cblas
 
-const
-  blas {.strdefine.} = "blas"
-  libName = libPrefix & blas & libSuffix
+template first[A](x: openArray[A]): ptr A = addr(x[0])
 
-static: echo "--USING BLAS LIB: " & libName
+suite "CBLAS test":
+  test "vector dot product":
+    var
+      u = [1.0, 2.0, 3.0, 4.0]
+      v = [2.0, 2.0, 2.0, 1.0]
+
+    let d = ddot(4, u.first, 1, v.first, 1)
+    check d == 16.0
