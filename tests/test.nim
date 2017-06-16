@@ -24,3 +24,21 @@ suite "CBLAS test":
 
     let d = ddot(4, u.first, 1, v.first, 1)
     check d == 16.0
+
+  test "matrix product":
+    var
+      m = [
+        1.0, 2.0, 3.0, 4.0,
+        5.0, 6.0, 7.0, 8.0,
+        1.0, 2.0, 1.0, 1.0
+      ]
+      n = [
+        2.0, 2.0, 2.0,
+        1.0, 2.0, 3.0
+      ]
+      r: array[8, float]
+
+    dgemm(CblasColMajor, CblasNoTrans, CblasNoTrans, 4, 2, 3, 1, m.first,
+      4, n.first, 3, 0, r.first, 4)
+    check @r[0..3] == @[14.0, 20.0, 22.0, 26.0]
+    check @r[4..7] == @[14.0, 20.0, 20.0, 23.0]
