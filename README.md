@@ -22,12 +22,22 @@ The library requires to link some BLAS implementation to perform the actual
 linear algebra operations. By default, it tries to link whatever is the default
 system-wide BLAS implementation.
 
-A few compile flags are available to link specific BLAS implementations
+You can link against a different BLAS implementation by a combination of:
 
-    -d:atlas
-    -d:openblas
-    -d:mkl
-    -d:mkl -d:threaded
+* changing the path for linked libraries (use
+  [`--clibdir`](https://nim-lang.org/docs/nimc.html#compiler-usage-command-line-switches)
+  for this)
+* using the `--define:blas` flag. By default, the system tries to load a BLAS
+  library called `blas`, which translates into something called `blas.dll`
+  or `libblas.so` according to the underling operating system. To link,
+  say, the library `libopenblas.so.3` on Linux, you should pass to Nim the
+  option `--define:blas=openblas`.
+
+See the tasks inside [nimblas.nimble](https://github.com/unicredit/nimblas/blob/master/nimblas.nimble)
+for a few examples.
+
+Previously there was a more ad hoc mechanism using flags called `-d:atlas`,
+`-d:openblas` or `-d:mkl`, which is deprecated as of NimBLAS 0.2.
 
 Packages for various BLAS implementations are available from the package
 managers of many Linux distributions. On OSX one can add the brew formulas
