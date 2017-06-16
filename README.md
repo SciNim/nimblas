@@ -2,8 +2,8 @@
 
 This is a Nim wrapper for the [BLAS](http://www.netlib.org/blas/) routines.
 
-You can `import cblas` to use the standard BLAS interface, or `import nimblas`
-for a version that is more Nim-friendly.
+You can `import nimblas/cblas` to use the standard BLAS interface, or just
+`import nimblas` for a version that is more Nim-friendly.
 
 The Nim version removes the prefixes and uses dispatch based on types instead.
 This means that, for instance, both `cblas_saxpy` and `cblas_daxpy` become
@@ -14,7 +14,7 @@ Only a subset of BLAS is available under `nimblas`, with more operations added
 on necessity.
 
 For a higher-level linear algebra library based on this, check out
-[linalg](http://unicredit.github.io/linear-algebra/).
+[neo](http://unicredit.github.io/neo/).
 
 ## Linking BLAS implementations
 
