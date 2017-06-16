@@ -29,4 +29,22 @@ const
   blas {.strdefine.} = "blas"
   libName = libPrefix & blas & libSuffix
 
-static: echo "--USING BLAS LIB: " & libName
+when defined(atlas):
+  {.warning: """
+    The flag -d:atlas is deprecated since NimBLAS 0.2
+Use -d:blas=LIBNAME instead
+  """ .}
+
+when  defined(openblas):
+  {.warning: """
+    The flag -d:openblas is deprecated since NimBLAS 0.2
+Use -d:blas=LIBNAME instead
+  """ .}
+
+when defined(mkl):
+  {.warning: """
+    The flag -d:mkl is deprecated since NimBLAS 0.2
+Use -d:blas=LIBNAME instead
+  """ .}
+
+{.hint: "Using BLAS library with name: " & libName .}
