@@ -15,9 +15,9 @@
 include nimblas/private/common
 
 type
-  TransposeType* = enum
+  TransposeType* {.size: sizeof(cint).} = enum
     noTranspose = 111, transpose = 112, conjTranspose = 113
-  OrderType* = enum
+  OrderType* {.size: sizeof(cint).} = enum
     rowMajor = 101, colMajor = 102
 
 proc scal*(N: int, ALPHA: float32, X: ptr float32, INCX: int)
