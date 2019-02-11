@@ -26,7 +26,7 @@ else:
     libPrefix = "lib"
 
 const
-  blas {.strdefine.} = "cblas"
+  blas {.strdefine.} = "blas"
   libName = libPrefix & blas & libSuffix
 
 when defined(atlas):
