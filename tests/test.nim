@@ -69,8 +69,8 @@ suite "CBLAS test":
           unsafeAddr(one),unsafeAddr(C[0]),size)
 
     check(C == resultC)
+    echo "dealloc" # for some reason, failing to have this hangs the test on MacOS
     dealloc(addr(A))
     dealloc(addr(B))
     dealloc(addr(C))
-
-
+    echo "done" # for some reason, failing to have this hangs the test on MacOS
