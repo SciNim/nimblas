@@ -33,11 +33,14 @@ You can link against a different BLAS implementation by a combination of:
   say, the library `libopenblas.so.3` on Linux, you should pass to Nim the
   option `--define:blas=openblas`.
 
-See the tasks inside [nimblas.nimble](https://github.com/unicredit/nimblas/blob/master/nimblas.nimble)
-for a few examples.
+For instance, the Linux Arch distribution and its derivatives (such as Manjaro)
+expose the C API for BLAS inside a library called `libcblas.so` (unlike most
+other distributions that put it into `libblas.so`). In this case, you can make
+use of this library with the flag `--define:blas=cblas`. For more examples, see
+the tasks inside [nimblas.nimble](https://github.com/unicredit/nimblas/blob/master/nimblas.nimble).
 
-Previously there was a more ad hoc mechanism using flags called `-d:atlas`,
-`-d:openblas` or `-d:mkl`, which is deprecated as of NimBLAS 0.2.
+(Previously there was a more ad hoc mechanism using flags called `-d:atlas`,
+`-d:openblas` or `-d:mkl`, which is deprecated as of NimBLAS 0.2.)
 
 Packages for various BLAS implementations are available from the package
 managers of many Linux distributions. On OSX one can add the brew formulas
