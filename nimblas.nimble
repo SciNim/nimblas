@@ -4,7 +4,7 @@ description   = "BLAS interface for Nim"
 license       = "Apache2"
 skipDirs      = @["tests"]
 
-requires "nim >= 0.11.2"
+requires "nim >= 0.19.9"
 
 proc configForTests() =
   --hints: off
