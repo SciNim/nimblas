@@ -26,7 +26,7 @@ else:
   const
     libSuffix = ".so(||.3|.2|.1|.0)"
     libPrefix = "lib"
-    blas {.strdefine.} = "(blas|cblas)"
+    blas {.strdefine.} = "(blas|cblas|openblas)"
 
 const
   libName = libPrefix & blas & libSuffix
