@@ -15,18 +15,20 @@
 when defined(windows):
   const
     libSuffix = ".dll"
-    libPrefix = ""
+    libPrefix = "(|lib)"
+    blas {.strdefine.} = "(blas|openblas|mkl_intel_lp64)"
 elif defined(macosx):
   const
     libSuffix = ".dylib"
     libPrefix = "lib"
+    blas {.strdefine.} = "blas"
 else:
   const
     libSuffix = ".so(||.3|.2|.1|.0)"
     libPrefix = "lib"
+    blas {.strdefine.} = "blas"
 
 const
-  blas {.strdefine.} = "blas"
   libName = libPrefix & blas & libSuffix
 
 when defined(atlas):
