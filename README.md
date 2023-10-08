@@ -14,7 +14,8 @@ Only a subset of BLAS is available under `nimblas`, with more operations added
 on necessity.
 
 For a higher-level linear algebra library based on this, check out
-[arraymancer](https://github.com/mratsim/Arraymancer).
+- [neo](https://andreaferretti.github.io/neo/)
+- [arraymancer](https://github.com/mratsim/Arraymancer).
 
 ## Linking BLAS implementations
 
