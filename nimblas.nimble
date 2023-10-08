@@ -1,4 +1,4 @@
-version       = "0.2.2"
+version       = "0.3.0"
 author        = "Andrea Ferretti"
 description   = "BLAS interface for Nim"
 license       = "Apache2"
