@@ -15,7 +15,7 @@
 when defined(windows):
   const
     libSuffix = ".dll"
-    libPrefix = "(|lib)"
+    libPrefix = "(lib|)"
     blas {.strdefine.} = "(blas|openblas|mkl_intel_lp64)"
 elif defined(macosx):
   const
@@ -24,7 +24,7 @@ elif defined(macosx):
     blas {.strdefine.} = "blas"
 else:
   const
-    libSuffix = ".so(||.3|.2|.1|.0)"
+    libSuffix = ".so(|.3|.2|.1|.0)"
     libPrefix = "lib"
     blas {.strdefine.} = "(blas|cblas|openblas)"
 
@@ -49,4 +49,9 @@ when defined(mkl):
 Use -d:blas=LIBNAME instead
   """ .}
 
-{.hint: "Using BLAS library with name: " & libName .}
+{.hint:
+  if '|' in libName:
+    "Using BLAS library matching pattern: " & libName
+  else:
+    "Using BLAS library with name: " & libName
+.}
